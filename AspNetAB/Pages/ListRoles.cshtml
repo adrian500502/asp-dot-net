@@ -1,0 +1,40 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@model AspNetAB.Pages.ListRolesModel
+@inject RoleManager<IdentityRole> RoleManager
+@{
+    ViewData["Title"] = "Roles List";
+}
+
+<h1>All Roles List</h1>
+
+@if (RoleManager.Roles.Count() > 0)
+{
+    foreach (var role in RoleManager.Roles)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                Role ID : @role.Id
+            </div>
+            <div class="card-body">
+                @if(User.IsInRole(role.Name))
+                {
+                    <h5 class="card-title" style="color: darkgreen; font-weight: bold">@role.Name</h5>
+                }
+                else
+                {
+                    <h5 class="card-title">@role.Name</h5>
+                }
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No roles created yet
+        </div>
+    </div>
+}
+

@@ -1,0 +1,20 @@
+﻿@page
+@model AspNetAB.Pages.LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<form method="post">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <p class="text-center justify-content-center">Are you sure you want to log-out?</p>
+                <p class="text-center">
+                    <button class="btn btn-outline-danger border-dark" asp-page-handler="Logout">Yes</button>
+                    <button class="btn btn-outline-success ml-5 border-dark" asp-page-handler="DontLogout">No</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
+
